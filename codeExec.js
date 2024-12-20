@@ -1,11 +1,8 @@
+/* eslint-disable no-unused-vars */
 const fs = require('fs');
 const path = require('path');
 const vscode = require('vscode');
 const {spawn} = require('child_process');
-
-function formatName(str){
-    return str.toLowerCase().replace(/\s+/g, '-');
-}
 
 function displayResults(allTestsPassed) {
     if (allTestsPassed) {

@@ -1,6 +1,6 @@
-# cph-lc README
+# Competitive Programming Helper(CPH): Leetcode
 
-This is the README for your extension "cph-lc". After writing up a brief description, we recommend including the following sections.
+Quickly compile and test Leetcode solutions directly in VS Code. This extension will fetch sample test cases from LeetCode, or you can opt to write and test your own custom problems. After fetching the test cases, you can run your code locally on those tests.
 
 ## Features
 
