@@ -21,7 +21,25 @@
         "command": "cph-lc.RunTestCases",
         "title": "CPH: Run Test Cases"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "hi-there",
+          "title": "CPH Leetcode",
+          "icon": "icons/logo.png"
+        }
+      ]
+    },
+    "views": {
+      "hi-there": [
+        {
+          "id": "explorerView",
+          "name": "CPH Leetcode",
+          "type": "webview"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint .",

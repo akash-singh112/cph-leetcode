@@ -18,7 +18,7 @@ function updateStatusBar(allTestsPassed) {
     statusBarItem.tooltip = 'Click to view details';
     statusBarItem.show();
 
-    // statusBarItem.command = 'extension.showTestDetails'; // Replace with your command ID
+    // statusBarItem.command = 'extension.showTestDetails'; // replace with your command ID
 }
 
 function writeResultsToOutputPanel(results,outputs,counter) {
