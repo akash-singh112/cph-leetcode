@@ -19,7 +19,7 @@ function getHTML(webview){
             <form id="fetchForm">
                 <input id='urlInput' type="text" placeholder="https://www.leetcode.com/problems/problem_name">
                 <br>
-                <button type="submit">Fetch test cases</button>
+                <button type="submit" id="getButton">Fetch test cases</button>
             </form>
             <p id="fetchResult"></p>
             <br><br>

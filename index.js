@@ -33,6 +33,7 @@ async function runPythonScript(url) {
     });
 
     // console.log('Just b4 in NodeJS');
+    
     const data = JSON.parse(result);
     
     return data.output

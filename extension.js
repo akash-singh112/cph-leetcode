@@ -28,46 +28,51 @@ function getLanguage(filePath) {
 }
 
 async function getTests(url) {
-	const [inputArray,outputArray] = await runPythonScript(url);
+	// Show the progress indicator while executing the function
+    await vscode.window.withProgress({
+        location: vscode.ProgressLocation.Notification,
+        title: 'Extracting Test Cases...',
+        cancellable: false
+    }, async (progress) => {
+        const [inputArray, outputArray] = await runPythonScript(url);
 
-	const problemName = formatName(getName(url));
+        const problemName = formatName(getName(url));
 
-	const testDataDir = path.join(__dirname, 'TestData');
+        const testDataDir = path.join(__dirname, 'TestData');
 
-	// Check if 'TestData' directory exists, create if it doesn't
-	if (!fs.existsSync(testDataDir)) {
-		fs.mkdirSync(testDataDir);
-		console.log("'TestData' directory created.");
-	}
+        // Check if 'TestData' directory exists, create if it doesn't
+        if (!fs.existsSync(testDataDir)) {
+            fs.mkdirSync(testDataDir);
+            console.log("'TestData' directory created.");
+        }
 
-	// Define the path for the problem-specific folder inside 'TestData'
-	const problemDir = path.join(testDataDir, problemName);
+        // Define the path for the problem-specific folder inside 'TestData'
+        const problemDir = path.join(testDataDir, problemName);
 
-	// Check if the problem folder exists, create if it doesn't
-	if (!fs.existsSync(problemDir)) {
-		fs.mkdirSync(problemDir);
-		console.log(`Folder for problem "${problemName}" created.`);
-	}
+        // Check if the problem folder exists, create if it doesn't
+        if (!fs.existsSync(problemDir)) {
+            fs.mkdirSync(problemDir);
+            console.log(`Folder for problem "${problemName}" created.`);
+        }
 
-	let ct = 1;
-	for(let ele of inputArray){
-		// Define the file path where the content will be written
-		const filePath = path.join(problemDir, `ip${ct++}.txt`);
+        let ct = 1;
+        // Create input files
+        for (let ele of inputArray) {
+            const filePath = path.join(problemDir, `ip${ct}.txt`);
+            fs.writeFileSync(filePath, ele);
+            progress.report({ increment: Math.floor((ct / inputArray.length) * 100), message: `Writing input file ${ct++}...` });
+		}
 
-		// Write text content to the file
-		fs.writeFileSync(filePath, ele);
-	}
+        ct = 1;
+        // Create output files
+        for (let ele of outputArray) {
+            const filePath = path.join(problemDir, `op${ct}.txt`);
+            fs.writeFileSync(filePath, ele);
+            progress.report({ increment: Math.floor((ct / outputArray.length) * 100), message: `Writing output file ${ct++}...` });
+		}
 
-	ct = 1;
-	for(let ele of outputArray){
-		// Define the file path where the content will be written
-		const filePath = path.join(problemDir, `op${ct++}.txt`);
-
-		// Write text content to the file
-		fs.writeFileSync(filePath, ele);
-	}
-
-	vscode.window.showInformationMessage('Sample input and output are now present in TestData folder ✅');
+        vscode.window.showInformationMessage('Sample input and output are now present in TestData folder 🎉');
+    });
 }
 
 class myWebviewViewProvider{

@@ -21,9 +21,7 @@ form.addEventListener('submit',async (e)=>{
         result1.textContent = "Enter valid Leetcode URL";
         return;
     }
-    await vscode.postMessage({ type: 'fetchTests', value: urlValue });
-    result1.textContent = "Testcases extracted successfully!";
-    result1.classList.add('greenText');
+    await vscode.postMessage({ type: 'fetchTests', value: problemURL });
 })
 
 runForm.addEventListener('submit',async (e)=>{

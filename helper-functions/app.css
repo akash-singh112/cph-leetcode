@@ -6,6 +6,10 @@ body {
   padding: 20px;
 }
 
+#getButton {
+  margin-left: 10%;
+}
+
 #p1 {
   font-size: 1.2em;
   font-weight: bold;
@@ -58,7 +62,9 @@ p {
 }
 
 #runCode {
+  position: relative;
   display: block;
   margin-top: 10px;
-  width: 100%;
+  width: 80%;
+  
 }

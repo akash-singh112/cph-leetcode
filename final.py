@@ -87,7 +87,7 @@ def return_clean(input):
                     i += 1
                 str11 += ']'*ndim
                 arr = ast.literal_eval(str11)
-                print(arr)
+                # print(arr)
                 dim_matrix = find_dimensions(arr)
                 assert(len(dim_matrix)==ndim or (not dim_matrix and ndim==1))
                 resultant_matrix = " ".join(map(str, dim_matrix)) + " " + " ".join(map(str, flatten_list(arr)))
