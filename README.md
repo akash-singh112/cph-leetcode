@@ -83,4 +83,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Author
 
 Made with ❤️ by Akash. If you find this extension helpful, please give it a ⭐ on [GitHub](https://github.com/akash-singh112).
+
 Also, if you encounter any issues, feel free to open an [issue](https://github.com/akash-singh112/issues) on GitHub. Feedback and suggestions are welcome!
