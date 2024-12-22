@@ -1,65 +1,92 @@
-# Competitive Programming Helper(CPH): Leetcode
+# CPH Leetcode Extension for VS Code
 
-Quickly compile and test Leetcode solutions directly in VS Code. This extension will fetch sample test cases from LeetCode, or you can opt to write and test your own custom problems. After fetching the test cases, you can run your code locally on those tests.
+[![Version](https://vsmarketplacebadge.apphb.com/version/undefined_publisher.cph-lc.svg)](https://marketplace.visualstudio.com/items?itemName=undefined_publisher.cph-lc)
+[![Downloads](https://vsmarketplacebadge.apphb.com/downloads/undefined_publisher.cph-lc.svg)](https://marketplace.visualstudio.com/items?itemName=undefined_publisher.cph-lc)
+[![Rating](https://vsmarketplacebadge.apphb.com/rating-star/undefined_publisher.cph-lc.svg)](https://marketplace.visualstudio.com/items?itemName=undefined_publisher.cph-lc)
 
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+**CPH Leetcode** is a Visual Studio Code extension designed to streamline competitive programming workflows by integrating Leetcode functionalities directly into the editor. Solve problems, fetch test cases, and run solutions—all without leaving VS Code!
 
 ---
 
-## Working with Markdown
+## Features
 
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+### 1. **Fetch Test Cases**
+Quickly fetch sample test cases for many problems on Leetcode and store them into your local memory.
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
+### 2. **Run Test Cases**
+Run your solutions against fetched test cases directly within VS Code and view the results in real time.
 
-## For more information
+### 3. **Custom UI in Activity Bar**
+The extension provides a dedicated **CPH Leetcode** view in the activity bar, giving easy access to features through a custom webview.
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+---
 
-**Enjoy!**
+## Installation
+
+1. Open Visual Studio Code.
+2. Go to the **Extensions** view by clicking on the Extensions icon in the Activity Bar on the side of the window.
+3. Search for `CPH Leetcode`.
+4. Click **Install** to install the extension.
+
+Alternatively, you can install directly from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=undefined_publisher.cph-lc).
+
+---
+
+## How to Use
+
+1. After installation, navigate to the **CPH Leetcode** view in the activity bar.
+2. Use the following commands from the Command Palette:
+   - **CPH: Fetch Test Cases**: Fetch sample test cases for a problem.
+   - **CPH: Run Test Cases**: Execute your code against the fetched test cases.
+Alternatively, you can interact with the UI in the activity bar and perform the same actions.
+
+---
+
+## Configuration
+
+Ensure that you have the following dependencies installed on your system:
+- **Node.js** for JavaScript runtime
+
+---
+
+## Project Structure
+
+- **icons/**: Contains the logo and icons for the extension.
+- **helper-functions/**: Includes utility functions for test case fetching and execution.
+- **TestData/**: Stores temporary files used during the execution of test cases.
+
+---
+
+## Contributing
+
+Contributions are welcome! To contribute:
+1. Fork this repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -am 'Add a new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Create a new Pull Request.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Screenshots
+
+### Custom UI in Activity Bar
+![Custom UI](https://github.com/akash-singh112/cph-leetcode/blob/main/images/UI.png)
+
+---
+
+## Author
+
+Made with ❤️ by Akash. If you find this extension helpful, please give it a ⭐ on [GitHub](https://github.com/akash-singh112).
+
+---
+
+## Support
+
+If you encounter any issues, feel free to open an [issue](https://github.com/akash-singh112/issues) on GitHub. Feedback and suggestions are welcome!

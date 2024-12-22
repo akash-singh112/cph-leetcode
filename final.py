@@ -5,11 +5,11 @@ from selenium.webdriver.chrome.options import Options
 import random,re,time,os,ast,sys,json
 
 chrome_options = Options()
-chrome_options.add_argument("--headless")  # Run Chrome in headless mode
-chrome_options.add_argument("--disable-blink-features=AutomationControlled")  # Disable automation detection
-chrome_options.add_argument("start-maximized")  # Start maximized to avoid detection
-chrome_options.add_argument("--window-size=1920x1080")  # Set window size to a common resolution
-chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36")  # Set User-Agent
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+chrome_options.add_argument("start-maximized")
+chrome_options.add_argument("--window-size=1920x1080")
+chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36")
 
 # Input Clean Function
 def return_clean(input):
