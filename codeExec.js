@@ -81,6 +81,10 @@ async function runCodeCpp(userSolutionFile,executableFile,problemFolderPath) {
 
         const inputContent = fs.readFileSync(inputPath, 'utf-8');
         const expectedOutput = fs.readFileSync(outputPath, 'utf-8').trim();
+        console.log(inputContent);
+        console.log(expectedOutput);
+        
+        
 
         console.log(`Running test case ${testCaseNumber}...`);
 

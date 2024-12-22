@@ -1,31 +1,22 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    string s,p;cin>>s>>p;
-    const int m = s.length();
-    const int n = p.length();
-    // dp[i][j] := true if s[0..i) matches p[0..j)
-    vector<vector<bool>> dp(m + 1, vector<bool>(n + 1));
-    dp[0][0] = true;
-
-    auto isMatch = [&](int i, int j) -> bool {
-      return j >= 0 && p[j] == '.' || s[i] == p[j];
-    };
-
-    for (int j = 0; j < p.length(); ++j)
-      if (p[j] == '*' && dp[0][j - 1])
-        dp[0][j + 1] = true;
-
-    for (int i = 0; i < m; ++i)
-      for (int j = 0; j < n; ++j)
-        if (p[j] == '*') {
-          // The minimum index of '*' is 1.
-          const bool noRepeat = dp[i + 1][j - 1];
-          const bool doRepeat = isMatch(i, j - 1) && dp[i][j + 1];
-          dp[i + 1][j + 1] = noRepeat || doRepeat;
-        } else if (isMatch(i, j)) {
-          dp[i + 1][j + 1] = dp[i][j];
+    int n;cin>>n;
+    int m;cin>>m;
+    vector<vector<int>> a(n,vector<int> (m,0));
+    for(auto &v:a)cin>>v[0]>>v[1];
+    sort(a.begin(),a.end());
+    int ans = 0;
+    int curEnd = a[0][1];
+    int i=1;
+    while(true){
+        while(i<n && a[i][0] <= curEnd){
+            curEnd = min(curEnd,a[i][1]);
+            i++;
         }
-
-    cout<<(dp[m][n] ? "true" : "false");
+        ans++;
+        if(i==n)break;
+        curEnd = a[i][1];
+    }
+    cout<<ans<<endl;
 }
