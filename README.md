@@ -14,7 +14,7 @@
 - Fetch sample test cases for problems and store them locally.  
 - Run solutions against fetched test cases directly in VS Code with real-time results.  
 - Access features through the **CPH Leetcode** UI in the VS Code activity bar.
-- Shows discrepancies if actual output does not macth expected output.
+- Shows discrepancies if actual output does not match expected output.
 
 ---
 
