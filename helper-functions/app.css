@@ -1,70 +1,63 @@
-body {
+* {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #1e1e1e;
   color: #d4d4d4;
+  color: black;
   margin: 0;
-  padding: 20px;
+  padding: 0;
 }
 
-#getButton {
-  margin-left: 10%;
+.runningText {
+  color: whitesmoke;
+  padding-bottom: 13px;
 }
 
 #p1 {
-  font-size: 1.2em;
   font-weight: bold;
   margin-bottom: 10px;
   color: #61dafb;
+  font-size: 18px;
+  text-align: center;
 }
 
-form {
-  margin-bottom: 20px;
-}
-
-input[type="text"] {
-  width: calc(100% - 20px);
-  max-width: 100%;
+input {
+  width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #3c3c3c;
   border-radius: 5px;
   background-color: #2d2d2d;
   color: #d4d4d4;
-  box-sizing: border-box;
+}
+
+.container {
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 15px;
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.fomo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 button {
   background-color: #007acc;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
+  color: white;
   padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.3s;
+  text-align: center;
+  transition: all 500ms ease-in-out 0s;
 }
 
 button:hover {
   background-color: #005f99;
-}
-
-.run {
-  margin-top: 20px;
-  padding: 15px;
-  border: 1px solid #3c3c3c;
-  border-radius: 5px;
-  background-color: #252526;
-}
-
-p {
-  margin: 0 0 10px;
-  font-size: 1em;
-}
-
-#runCode {
-  position: relative;
-  display: block;
-  margin-top: 10px;
-  width: 80%;
-  
 }
