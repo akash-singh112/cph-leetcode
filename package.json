@@ -5,6 +5,7 @@
     "type": "git",
     "url": "https://github.com/akash-singh112/cph-leetcode"
   },
+  "icon": "icons/coding.png",
   "displayName": "Competitive Programming Helper: Leetcode (cph-lc)",
   "description": "Fetch and run Leetcode sample test cases seamlessly within your VS Code environment",
   "version": "0.0.21",
