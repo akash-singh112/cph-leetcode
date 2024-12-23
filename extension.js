@@ -1,3 +1,4 @@
+const assert = require('assert');
 const vscode = require('vscode');
 const {runPythonScript} = require('./index.js');
 const fs = require('fs');
@@ -38,16 +39,26 @@ async function getTests(url) {
 
         const problemName = formatName(getName(url));
 
-        const testDataDir = path.join(__dirname, 'TestData');
+        const workspaceFolders = vscode.workspace.workspaceFolders;
+		if (!workspaceFolders) {
+			vscode.window.showErrorMessage('No folder or workspace is open.');
+			return;
+		}
 
-        // Check if 'TestData' directory exists, create if it doesn't
-        if (!fs.existsSync(testDataDir)) {
-            fs.mkdirSync(testDataDir);
-            console.log("'TestData' directory created.");
-        }
+		console.log("workspaceFolders: ",workspaceFolders);
+		
+
+		const folderPath = workspaceFolders[0].uri.fsPath; // Use the first folder in the workspace
+		const testCasesFolder = path.join(folderPath, 'TestData');
+
+		// Ensure the folder exists
+		if (!fs.existsSync(testCasesFolder)) {
+			fs.mkdirSync(testCasesFolder, { recursive: true });
+			console.log(`TestData folder created.`);
+		}
 
         // Define the path for the problem-specific folder inside 'TestData'
-        const problemDir = path.join(testDataDir, problemName);
+        const problemDir = path.join(testCasesFolder, problemName);
 
         // Check if the problem folder exists, create if it doesn't
         if (!fs.existsSync(problemDir)) {
@@ -99,6 +110,12 @@ class myWebviewViewProvider{
 				await getTests(url);
 			}
 			else if(m.type == 'runTests'){
+				const workspaceFolders = vscode.workspace.workspaceFolders;
+				if (!workspaceFolders || workspaceFolders.length === 0) {
+					vscode.window.showErrorMessage('No folder or workspace is open.');
+					return;
+				}
+				
 				const editor = vscode.window.activeTextEditor;
 				let problemName = m.value;
 			
@@ -120,15 +137,32 @@ class myWebviewViewProvider{
 				}
 					
 				problemName = formatName(problemName);
-						
-				const problemFolderPath = path.join(__dirname, 'TestData', problemName);
-					
-				if (!fs.existsSync(problemFolderPath)) {
-					vscode.window.showErrorMessage(`Test cases for "${problemName}" not found!`);
-					return 1;
-				}
-				else{
-					console.log("Found!");
+				let problemFolderPath;
+
+				let flag = 0;
+				for(let folder of workspaceFolders){
+					const workspaceFolderPath = folder.uri.fsPath;
+        			const testDataFolderPath = path.join(workspaceFolderPath, 'TestData');
+					if(!fs.existsSync(testDataFolderPath))continue;
+
+					flag = 1;
+
+					problemFolderPath = path.join(testDataFolderPath, problemName);
+
+					if (!fs.existsSync(problemFolderPath)) {
+						vscode.window.showErrorMessage(`The folder '${problemName}' does not exist inside 'TestData'.`);
+						return;
+					}
+					else{
+						flag = 2;
+						console.log("Found!");
+						break;
+					}
+				};
+
+				if(flag == 0){
+					vscode.window.showErrorMessage(`'TestData' folder not found`);
+					return;
 				}
 
 				let filePath = editor.document.uri.fsPath;
@@ -163,15 +197,21 @@ async function activate(context) {
 	});
 
 	const runCases = vscode.commands.registerCommand('cph-lc.RunTestCases',async function (){
+		const workspaceFolders = vscode.workspace.workspaceFolders;
+		if (!workspaceFolders) {
+			vscode.window.showErrorMessage('No folder or workspace is open.');
+			return;
+		}
+				
 		const editor = vscode.window.activeTextEditor;
 			
 		if (!editor) {
 			vscode.window.showErrorMessage('No active editor found! Open your solution file.');
 			return;
 		}
-				
+						
 		const userCode = editor.document.getText(); // Fetch code from the open editor
-				
+						
 		if (!userCode || userCode.trim() === '') {
 			vscode.window.showErrorMessage('Solution code is empty!');
 			return;
@@ -181,23 +221,42 @@ async function activate(context) {
 		let problemName = await vscode.window.showInputBox({
 			prompt: "Enter the problem name"
 		});
-				
+						
 		if (!problemName) {
 			vscode.window.showErrorMessage('Problem name is required!');
 			return 0;
 		}
-			
+					
 		problemName = formatName(problemName);
-				
-		const problemFolderPath = path.join(__dirname, 'TestData', problemName);
-			
-		if (!fs.existsSync(problemFolderPath)) {
-			vscode.window.showErrorMessage(`Test cases for "${problemName}" not found!`);
-			return 1;
+		let problemFolderPath;
+
+		let flag = 0;
+		for(let folder of workspaceFolders){
+			const workspaceFolderPath = folder.uri.fsPath;
+        	const testDataFolderPath = path.join(workspaceFolderPath, 'TestData');
+			if(!fs.existsSync(testDataFolderPath))continue;
+
+			flag = 1;
+
+			problemFolderPath = path.join(testDataFolderPath, problemName);
+
+			if (!fs.existsSync(problemFolderPath)) {
+				vscode.window.showErrorMessage(`The folder '${problemName}' does not exist inside 'TestData'.`);
+				return;
+			}
+			else{
+				flag = 2;
+				console.log("Found!");
+				break;
+			}
+		};
+
+		if(flag == 0){
+			vscode.window.showErrorMessage(`'TestData' folder not found`);
+			return;
 		}
-		else{
-			console.log("Found!");
-		}
+
+		assert(flag == 2);
 
 		let filePath = editor.document.uri.fsPath;
 		const lang = getLanguage(filePath);
