@@ -1,5 +1,7 @@
 {
   "name": "cph-lc",
+  "publisher": "akashsinghiitr",
+  "repository": "https://github.com/akash-singh112/cph-leetcode",
   "displayName": "cph-lc",
   "description": "",
   "version": "0.0.1",
@@ -52,9 +54,10 @@
     "@types/vscode": "^1.96.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
-    "eslint": "^9.16.0"
+    "eslint": "^9.16.0",
+    "vscode": "^1.1.37"
   },
   "dependencies": {
-    "vscode": "^1.1.37"
+    
   }
 }
