@@ -14,10 +14,10 @@
 
 ---
 
-## Screenshots
+## Screenshots/Demo Video
 
 ### Custom UI in Activity Bar
-![Custom UI](https://github.com/akash-singh112/cph-leetcode/blob/main/images/UI.png)
+![Custom UI](images/UI.png)
 
 ---
 
@@ -45,14 +45,22 @@ Alternatively, you can interact with the UI in the activity bar and perform the 
 
 ## Supported Languages
 
-1. C++
-2. Python
+- C++
+- Python3
+
+---
+
+## Upcoming Major Updates
+
+- Support for Java
+- Feature for user to extract test cases for Leetcode daily challenge from extension itself
+- Allow users to change default storage folder for test cases (which is currently "TestData" in same working directory)
 
 ---
 
 ## Project Structure
 
-- **icons/**: Contains the logo and icons for the extension.
+- **icons**: Contains the logo and icons for the extension.
 - **helper-functions/**: Includes utility functions for test case fetching, test case execution, and to fetch HTML for the UI of Extension.
 - **extension.js**: Main Logic for the extension goes here.
 - **final.py**: Python script to fetch sample test cases from desired URL.
@@ -80,4 +88,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Made with ❤️ by Akash. If you find this extension helpful, please give it a ⭐ on [GitHub](https://github.com/akash-singh112).
 
-Also, if you encounter any issues, feel free to open an [issue](https://github.com/akash-singh112/issues) on GitHub. Feedback and suggestions are welcome!
+Also, if you encounter any issues, or have any questions, feel free to contact me at [akashsingh242678@gmail.com](akashsingh242678@gmail.com)
