@@ -8,7 +8,7 @@
   "icon": "icons/coding.png",
   "displayName": "Competitive Programming Helper: Leetcode (cph-lc)",
   "description": "Fetch and run Leetcode sample test cases seamlessly within your VS Code environment",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "engines": {
     "vscode": "^1.96.0"
   },
