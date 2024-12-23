@@ -2,7 +2,7 @@
   "name": "cph-lc",
   "publisher": "akashsinghiitr",
   "repository": "https://github.com/akash-singh112/cph-leetcode",
-  "displayName": "cph-lc",
+  "displayName": "Competitive Programming Helper: Leetcode (cph-lc)",
   "description": "Fetch and run Leetcode sample test cases seamlessly within your VS Code environment",
   "version": "0.0.2",
   "engines": {

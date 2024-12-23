@@ -25,10 +25,10 @@
 
 1. Open Visual Studio Code.
 2. Go to the **Extensions** view by clicking on the Extensions icon in the Activity Bar on the side of the window.
-3. Search for `CPH Leetcode`.
+3. Search for `Competitive Programming Helper: Leetcode (cph-lc)`.
 4. Click **Install** to install the extension.
 
-Alternatively, you can install directly from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=undefined_publisher.cph-lc).
+Alternatively, you can install directly from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=akashsinghiitr.cph-lc).
 
 ---
 
