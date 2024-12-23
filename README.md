@@ -10,14 +10,18 @@
 
 ## Features
 
-### 1. **Fetch Test Cases**
-Quickly fetch sample test cases for many problems on Leetcode and store them into your local memory.
+- Works with LeetCode
+- Fetch sample test cases for problems and store them locally.  
+- Run solutions against fetched test cases directly in VS Code with real-time results.  
+- Access features through the **CPH Leetcode** UI in the VS Code activity bar.
+- Shows discrepancies if actual output does not match expected output.
 
-### 2. **Run Test Cases**
-Run your solutions against fetched test cases directly within VS Code and view the results in real time.
+---
 
-### 3. **Custom UI in Activity Bar**
-The extension provides a dedicated **CPH Leetcode** view in the activity bar, giving easy access to features through a custom webview.
+## Screenshots
+
+### Custom UI in Activity Bar
+![Custom UI](https://github.com/akash-singh112/cph-leetcode/blob/main/images/UI.png)
 
 ---
 
@@ -38,22 +42,24 @@ Alternatively, you can install directly from the [Visual Studio Marketplace](htt
 2. Use the following commands from the Command Palette:
    - **CPH: Fetch Test Cases**: Fetch sample test cases for a problem.
    - **CPH: Run Test Cases**: Execute your code against the fetched test cases.
+
 Alternatively, you can interact with the UI in the activity bar and perform the same actions.
 
 ---
 
-## Configuration
+## Supported Languages
 
-Ensure that you have the following dependencies installed on your system:
-- **Node.js** for JavaScript runtime
+1. C++
+2. Python
 
 ---
 
 ## Project Structure
 
 - **icons/**: Contains the logo and icons for the extension.
-- **helper-functions/**: Includes utility functions for test case fetching and execution.
-- **TestData/**: Stores temporary files used during the execution of test cases.
+- **helper-functions/**: Includes utility functions for test case fetching, test case execution, and to fetch HTML for the UI of Extension.
+- **extension.js**: Main Logic for the extension goes here.
+- **final.py**: Python script to fetch sample test cases from desired URL.
 
 ---
 
@@ -74,19 +80,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-## Screenshots
-
-### Custom UI in Activity Bar
-![Custom UI](https://github.com/akash-singh112/cph-leetcode/blob/main/images/UI.png)
-
----
-
 ## Author
 
 Made with ❤️ by Akash. If you find this extension helpful, please give it a ⭐ on [GitHub](https://github.com/akash-singh112).
 
----
-
-## Support
-
-If you encounter any issues, feel free to open an [issue](https://github.com/akash-singh112/issues) on GitHub. Feedback and suggestions are welcome!
+Also, if you encounter any issues, feel free to open an [issue](https://github.com/akash-singh112/issues) on GitHub. Feedback and suggestions are welcome!
