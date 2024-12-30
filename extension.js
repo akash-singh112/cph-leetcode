@@ -36,10 +36,6 @@ async function getTests(url) {
         cancellable: false
     }, async (progress) => {
         const [inputArray, outputArray] = await runPythonScript(url);
-		console.log(inputArray);
-		console.log(outputArray);
-		
-		
 
         const problemName = formatName(getName(url));
 
