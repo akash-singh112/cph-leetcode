@@ -122,10 +122,16 @@ def getProblemName(url):
 # Get Input worthy test cases
 def extract_test_cases(soup):
     pre_tags = soup.find_all('pre')  # Find all <pre> tags
+    final_processor = 69
+    if pre_tags:
+        final_processor = pre_tags
+    else:
+        final_processor = soup.find_all('div',class_="example-block")
+
     formatted_input = []
     formatted_output = []
 
-    for tag in pre_tags:
+    for tag in final_processor:
         text = tag.get_text(separator=" ").strip()
         cleaned_text = re.sub(r"(Input:|Output:|Explanation:)\s*", "", text)
         splitted_clean_text = cleaned_text.split('\n')
@@ -160,8 +166,9 @@ def extract_test_cases(soup):
 
         # Convert input to clean form ans append to 'formatted_input' list
         formatted_input.append(return_clean(input))
-        
+            
     return formatted_input,formatted_output
+
 
 # Set up WebDriver
 service = Service()
